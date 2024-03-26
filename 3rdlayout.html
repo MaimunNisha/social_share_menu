@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Nunito Sans", sans-serif;
+
+        }
+        body{
+            background-color: #021d3d;
+
+        }
+ /* industry_expertise_innovation_layout_outer */
+.industry_expertise_innovation_layout_outer {
+    /* background-color: #66fcf1; */
+    height: 700px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+        .industry_expertise_innovation_layout_inner {
+            background-color: #021d3d;
+            height: 650px;
+            width: 650px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+
+        }
+
+        .round {
+            position: relative;
+            width: 550px;
+            height: 550px;
+            border: 2px dotted #66fcf1;
+            border-radius: 50%;
+
+        }
+
+        .round .icon {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            left: -50%;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .round .icon .img10x {
+            position: absolute;
+            background-color: #f8fafc;
+            height: 60px;
+            width: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 3px 4px rgba(0, 0, 0, 0.15);
+            transition: 0.5s;
+            transform: rotate(calc(360deg/10 * var(--i)));
+            transform-origin: 305px;
+            z-index: 100;
+            /* overflow: hidden; */
+
+        }
+
+        .round .icon .img10x.active {
+            /* border-radius: 50%; */
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15), 0 0 0 3px #0095ff, 0 0 0 6px #f8fafc;
+        }
+
+        .round .icon .img10x.active {
+            background-color: #66fcf1;
+        }
+
+        .round .icon .img10x>img {
+            height: 30px;
+            width: 30px;
+            transform: rotate(calc(-360deg/10 * var(--i)));
+
+        }
+
+        .round .icon .img10x:hover {
+            /* width: 30px; */
+            /* height: 30px; */
+            /* transform: scale(1); */
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15), 0 0 0 2px #0095ff, 0 0 0 8px #f8fafc;
+        }
+
+        .toggle {
+            position: absolute;
+            inset: 0;
+            /* overflow: hidden; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .toggle::before {
+            content: '';
+            position: absolute;
+            inset: 50px;
+            border: 4px solid transparent;
+            border-left: 3px solid #66fcf1;
+            border-right: 3px solid #f8fafc;
+            border-radius: 50%;
+            animation: animte_01 5s linear infinite;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        @keyframes animte_01 {
+            0% {
+                rotate: 0deg;
+            }
+
+            100% {
+                rotate: 360deg;
+            }
+        }
+
+        .toggle::after {
+            content: '';
+            position: absolute;
+            inset: 100px;
+            border: 4px solid transparent;
+            border-left: 3px solid #0095ff;
+            border-right: 3px solid #f8fafc;
+            border-radius: 50%;
+            animation: animte_02 2.5s linear infinite;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        @keyframes animte_02 {
+            0% {
+                rotate: 360deg;
+            }
+
+            100% {
+                rotate: 0deg;
+            }
+        }
+
+        .content10x {
+            position: absolute;
+            transform: scale(0);
+            transform: 0.5s;
+            opacity: 0;
+        }
+
+        .content10x.active {
+            transform: scale(1);
+            opacity: 1;
+            transition-delay: .5s;
+
+        }
+
+        .content10x .card {
+            width: 250px;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .content10x .card h2 {
+            position: relative;
+            font-size: 2.25em;
+            color: #fff;
+            line-height: 1px;
+            text-align: center;
+
+        }
+
+        .content10x .card p {
+            /* margin-top: -20px; */
+            text-align: center;
+            font-size: 1.02em;
+        }
+
+        /* // */
+         /* custom-pagination */
+.custom-pagination{
+    width: 100%;
+    display: flex;
+    height: 182px;
+    align-items: center;
+    justify-content: center;
+}
+.pagination a {
+    color:  #E13833;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: background-color .3s;
+    border: 1px solid #ddd;
+  }
+  
+  .pagination a.active {
+    background-color: #E13833;
+    color: white;
+  }
+  
+  .pagination a:hover:not(.active) {background-color: #ddd;}
+  /*end custom-pagination */
+   
+    </style>
+</head>
+
+<body>
+    <div class="industry_expertise_innovation_layout_outer">
+
+    <div class="industry_expertise_innovation_layout_inner">
+        <div class="round">
+            <div class="icon">
+                <div style="--i:0;" data-id="content1" class="img10x active">
+                    <img src="industry_expertise/automation.webp" alt="automation">
+                </div>
+                <div style="--i:1;" data-id="content2" class="img10x">
+                    <img src="industry_expertise/e-comm.webp" alt="e-comm">
+                </div>
+                <div style="--i:2;" data-id="content3" class="img10x">
+                    <img src="industry_expertise/education.webp" alt="education">
+                </div>
+                <div style="--i:3;" data-id="content4" class="img10x">
+                    <img src="industry_expertise/entertainment.webp" alt="entertainment">
+                </div>
+                <div style="--i:4;" data-id="content5" class="img10x">
+                    <img src="industry_expertise/finance.webp" alt="finance">
+                </div>
+                <div style="--i:5;" data-id="content6" class="img10x">
+                    <img src="industry_expertise/health.webp" alt="health">
+                </div>
+                <div style="--i:6;" data-id="content7" class="img10x">
+                    <img src="industry_expertise/menufecturing.webp" alt="menufecturing">
+                </div>
+                <div style="--i:7;" data-id="content8" class="img10x">
+                    <img src="industry_expertise/real-state.webp" alt="real-state">
+                </div>
+                <div style="--i:8;" data-id="content9" class="img10x">
+                    <img src="industry_expertise/retaile.webp" alt="retaile">
+                </div>
+                <div style="--i:9;" data-id="content10" class="img10x">
+                    <img src="industry_expertise/telecummunication.webp" alt="telecummunication">
+                </div>
+
+            </div>
+            <div class="toggle">
+                <div class="content10x active" id="content1">
+                    <div class="card">
+                        <div class="text10x">
+                            <h2>Automation</h2><br>
+                            <p>Transforming Industries through Intelligent Automation Solutions.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="content10x" id="content2">
+                    <div class="card">
+                        <div class="text10x">
+                            <h2>E-commerce</h2><br>
+                            <p>Empowering E-commerce Growth with Cutting-Edge Technology
+                                Solutions.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="content10x" id="content3">
+                    <div class="card">
+                        <div class="text10x">
+                            <h2>Education</h2><br>
+                            <p>Empowering Education for a Brighter Future through Technology
+                                Solutions.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="content10x" id="content4">
+                    <div class="card">
+                        <div class="text10x">
+                            <h2>Entertainment</h2><br>
+                            <p>Bringing Entertainment to Life with Innovative Technology
+                                Solutions.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="content10x" id="content5">
+                    <div class="card">
+                        <div class="text10x">
+                            <h2>Finance</h2><br>
+                            <p>Driving Financial Success with Advanced Technology Solutions.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="content10x" id="content6">
+                    <div class="card">
+                        <div class="text10x">
+                            <h2>Health</h2><br>
+                            <p>Elevating Healthcare Excellence through Innovative Technology
+                                Solutions.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="content10x" id="content7">
+                    <div class="card">
+                        <div class="text10x">
+                            <h2>Menufecturing</h2><br>
+                            <p>Driving Manufacturing Efficiency and Innovation with Advanced
+                                Technology Solutions.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="content10x" id="content8">
+                    <div class="card">
+                        <div class="text10x">
+                            <h2>Real-Estate</h2><br>
+                            <p>Unlocking the Potential of Real Estate with Technology and
+                                Expertise.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="content10x" id="content9">
+                    <div class="card">
+                        <div class="text10x">
+                            <h2>Retail</h2><br>
+                            <p>Revolutionizing Retail Experiences with Innovative Technology
+                                Solutions.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="content10x" id="content10">
+                    <div class="card">
+                        <div class="text10x">
+                            <h2>Telecummunication</h2><br>
+                            <p>Connecting the World with Next-Generation Telecommunication
+                                Solutions.</p>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+
+        </div>
+    </div>
+</div>
+    <section class="custom-pagination">
+        <div class="pagination">
+            <a href="4thlayout.html">Next</a>
+            <a  href="index.html">1</a>
+            <a  href="2ndlayout.html">2</a>
+            <a class="active" href="3rdlayout.html">3</a>
+            <a href="4thlayout.html">4</a>
+            <!-- <a href="#">16621</a> -->
+            <a href="2ndlayout.html">Prev</a>
+
+          </div>
+            </section>
+    <!-- Industry Expertise end -->
+    <script>
+        let img10x = document.querySelectorAll('.img10x')
+        let content10x = document.querySelectorAll('.content10x')
+
+        for (let i = 0; i < img10x.length; i++) {
+            img10x[i].addEventListener('mouseover', function () {
+                for (let i = 0; i < content10x.length; i++) {
+                    content10x[i].className = 'content10x'
+                }
+                document.getElementById(this.dataset.id).className = 'content10x active'
+
+                for (let i = 0; i < img10x.length; i++) {
+                    img10x[i].className = 'img10x'
+                }
+                this.className = 'img10x active'
+            })
+        }
+    </script>
+</body>
+
+</html>
